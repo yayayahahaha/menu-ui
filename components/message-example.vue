@@ -44,12 +44,14 @@
                 var {result, value} = await this.$alert('alert content', 'alert title', {
                     type: 'success'
                 });
+                this.$toast.info('result: ' + result);
                 console.log('alert: ', result, value);
             },
             async confirm() {
                 var {result, value} = await this.$confirm('confirm content', 'confirm title', {
                     type: 'success'
                 });
+                this.$toast.info('result: ' + result);
                 console.log('confirm: ', result, value);
             },
             async prompt() {
@@ -64,8 +66,7 @@
                         }
                     }
                 });
-
-
+                this.$toast.info('result: ' + result + ' value: ' + value);
             }
         }
     }
