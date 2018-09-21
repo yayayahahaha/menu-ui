@@ -51,6 +51,16 @@
                         </mu-card>
                     </mu-expand-transition>
                 </mu-flex>
+
+                <!-- scale -->
+                <mu-button @click="scale_show = !scale_show" color="#00ff63">Scale</mu-button>
+                <mu-flex>
+                    <mu-scale-transition>
+                        <mu-card v-show="scale_show">
+                            <mu-card-title title="card-scale-title"></mu-card-title>
+                        </mu-card>
+                    </mu-scale-transition>
+                </mu-flex>
             </mu-container>
         </mu-expansion-panel>
     </mu-container>
@@ -62,7 +72,8 @@
             return {
                 fade_show: false,
                 slide_show: false,
-                expand_show: false
+                expand_show: false,
+                scale_show: false
             }
         },
         methods: {
