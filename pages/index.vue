@@ -11,30 +11,21 @@
 
 <script>
     import axios from "axios";
+    import MuseUI from 'muse-ui';
+    import 'muse-ui/dist/muse-ui.css';
 
     export default {
-        asyncData: function(context) {
-            return axios({
-                method: 'get',
-                url: '/',
-                data: {
-                    key: "value"
-                },
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept':'application/json'
-                }
-            }).then(function(res) {
-                return {
-                    context: Object.keys(context)
-                };
-            }).catch(function(error) {
-                return {
-                    context: Object.keys(context)
-                };
+        asyncData(context) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve({
+                        msg: 'hello',
+                        context: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                    })
+                }, 100);
             });
         },
-        data: function() {
+        data() {
             return {
                 msg: "Context Params"
             };
