@@ -3,21 +3,31 @@
         <mu-expansion-panel>
             <div slot="header">提示訊息相關</div>
 
-            <mu-button class="demo-button" @click="$toast.message('Message')" color="primary">
-                message
-            </mu-button>
-            <mu-button class="demo-button" @click="$toast.success('Success')" color="success">
-                success
-            </mu-button>
-            <mu-button class="demo-button" @click="$toast.warning('Warning')" color="warning">
-                warning
-            </mu-button>
-            <mu-button class="demo-button" @click="$toast.info('Info')" color="info">
-                info
-            </mu-button>
-            <mu-button class="demo-button" @click="$toast.error('Error')" color="error">
-                error
-            </mu-button>
+            <!-- toast -->
+            <mu-flex>
+                <mu-button class="demo-button" @click="$toast.message('Message Toast')" color="primary">
+                    message toast
+                </mu-button>
+                <mu-button class="demo-button" @click="$toast.success('Success Toast')" color="success">
+                    success toast
+                </mu-button>
+                <mu-button class="demo-button" @click="$toast.warning('Warning Toast')" color="warning">
+                    warning toast
+                </mu-button>
+                <mu-button class="demo-button" @click="$toast.info('Info Toast')" color="info">
+                    info toast
+                </mu-button>
+                <mu-button class="demo-button" @click="$toast.error('Error Toast')" color="error">
+                    error toast
+                </mu-button>
+            </mu-flex>
+
+            <!-- alert -->
+            <mu-flex>
+                <mu-button class="demo-button" color="brown" @click="alert()">Alert</mu-button>
+                <mu-button class="demo-button" color="secondary" @click="confirm()">Confirm</mu-button>
+                <mu-button class="demo-button" color="teal" @click="prompt()">Prompt</mu-button>
+            </mu-flex>
 
         </mu-expansion-panel>
     </mu-container>
@@ -30,14 +40,33 @@
             }
         },
         methods: {
-            alter() {
-                console.log('alter');
+            async alert() {
+                var {result, value} = await this.$alert('alert content', 'alert title', {
+                    type: 'success'
+                });
+                console.log('alert: ', result, value);
             },
-            toast() {
-                console.log('toast');
+            async confirm() {
+                var {result, value} = await this.$confirm('confirm content', 'confirm title', {
+                    type: 'success'
+                });
+                console.log('confirm: ', result, value);
+            },
+            async prompt() {
+                var { result, value } = await this.$prompt('prompt', 'prompt title', {
+                    validator(value) {
+                        var result = (() => {
+                            return value === 'hello';
+                        })();
+                        return {
+                            valid: result,
+                            message: '請輸入 hello '
+                        }
+                    }
+                });
+
+
             }
-        },
-        mounted() {
         }
     }
 </script>
