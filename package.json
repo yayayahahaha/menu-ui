@@ -1,8 +1,9 @@
 {
     "scripts": {
-       "dev": "nuxt"
+        "dev": "nuxt"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "muse-ui": "^3.0.1",
         "nuxt": "^1.4.2"
     }
