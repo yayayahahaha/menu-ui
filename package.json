@@ -1,6 +1,9 @@
 {
-  "dependencies": {
-    "muse-ui": "^3.0.1",
-    "nuxt": "^1.4.2"
-  }
+    "scripts": {
+       "dev": "nuxt"
+    },
+    "dependencies": {
+        "muse-ui": "^3.0.1",
+        "nuxt": "^1.4.2"
+    }
 }
