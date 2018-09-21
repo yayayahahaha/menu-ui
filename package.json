@@ -1,9 +1,11 @@
 {
     "scripts": {
-       "dev": "nuxt"
+        "dev": "nuxt"
     },
     "dependencies": {
         "muse-ui": "^3.0.1",
+        "muse-ui-message": "^0.2.1",
+        "muse-ui-toast": "^0.3.0",
         "nuxt": "^1.4.2"
     }
 }
