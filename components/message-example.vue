@@ -45,14 +45,12 @@
                     type: 'success'
                 });
                 this.$toast.info('result: ' + result);
-                console.log('alert: ', result, value);
             },
             async confirm() {
                 var {result, value} = await this.$confirm('confirm content', 'confirm title', {
                     type: 'success'
                 });
                 this.$toast.info('result: ' + result);
-                console.log('confirm: ', result, value);
             },
             async prompt() {
                 var { result, value } = await this.$prompt('prompt', 'prompt title', {
