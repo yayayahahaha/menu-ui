@@ -1,6 +1,7 @@
 <template>
     <div>
         <layout-example></layout-example>
+        <transition-example></transition-example>
     </div>
 </template>
 
@@ -23,9 +24,13 @@
     //
 
     import LayoutExample from '~/components/layout-example'
+    import TransitionExample from '~/components/transition-example'
 
     export default {
-        components: {LayoutExample},
+        components: {
+            LayoutExample,
+            TransitionExample
+        },
         asyncData(context) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {

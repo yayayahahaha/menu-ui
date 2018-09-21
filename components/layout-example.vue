@@ -3,9 +3,9 @@
         <mu-expansion-panel>
             <div slot="header">Layout</div>
             <mu-card>
-                <mu-card-header title="這裡是卡片的頭" sub-title="卡片的小標">
+                <mu-card-title title="卡片的標題" sub-title="卡片標題的小標"></mu-card-title>
+                <mu-card-header title="這裡是卡片的頭" sub-title="卡片的頭的小標">
                 </mu-card-header>
-                <mu-card-title title="卡片的身體" sub-title="卡片身體的小標"></mu-card-title>
                 <mu-card-text>
                     <p>卡片內文</p>
                 </mu-card-text>
