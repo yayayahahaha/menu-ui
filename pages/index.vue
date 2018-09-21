@@ -1,7 +1,11 @@
 <template>
     <div>
+        <!-- 小圖示檔案 -->
+        <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css">
+
         <layout-example></layout-example>
         <transition-example></transition-example>
+        <message-example></message-example>
     </div>
 </template>
 
@@ -25,11 +29,13 @@
 
     import LayoutExample from '~/components/layout-example'
     import TransitionExample from '~/components/transition-example'
+    import MessageExample from '~/components/message-example'
 
     export default {
         components: {
             LayoutExample,
-            TransitionExample
+            TransitionExample,
+            MessageExample
         },
         asyncData(context) {
             return new Promise((resolve, reject) => {
@@ -54,6 +60,8 @@
             return {
                 msg: "Context Params"
             };
+        },
+        mounted() {
         }
     }
 </script>
