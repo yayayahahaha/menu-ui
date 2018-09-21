@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "muse-ui": "^3.0.1"
+    "muse-ui": "^3.0.1",
+    "nuxt": "^1.4.2"
   }
 }
