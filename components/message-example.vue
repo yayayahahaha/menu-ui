@@ -56,6 +56,7 @@
             },
             async prompt() {
                 var { result, value } = await this.$prompt('prompt', 'prompt title', {
+                    transition: 'slide-left',
                     validator(value) {
                         var result = (() => {
                             return value === 'hello';
