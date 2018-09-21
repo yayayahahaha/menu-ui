@@ -41,6 +41,16 @@
                         </mu-card>
                     </mu-slide-bottom-transition>
                 </mu-flex>
+
+                <!-- expand -->
+                <mu-button @click="expand_show = !expand_show" color="#6300ff">Expand</mu-button>
+                <mu-flex>
+                    <mu-expand-transition>
+                        <mu-card v-show="expand_show">
+                            <mu-card-title title="card-expand-title"></mu-card-title>
+                        </mu-card>
+                    </mu-expand-transition>
+                </mu-flex>
             </mu-container>
         </mu-expansion-panel>
     </mu-container>
@@ -51,7 +61,8 @@
         data() {
             return {
                 fade_show: false,
-                slide_show: false
+                slide_show: false,
+                expand_show: false
             }
         },
         methods: {
