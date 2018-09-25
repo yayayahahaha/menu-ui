@@ -6,6 +6,7 @@
         <layout-example></layout-example>
         <transition-example></transition-example>
         <message-example></message-example>
+        <loading-example></loading-example>
     </div>
 </template>
 
@@ -17,25 +18,30 @@
     import MuseUI from 'muse-ui';
     import Message from 'muse-ui-message';
     import Toast from 'muse-ui-toast';
+    import Loading from 'muse-ui-loading';
 
-    import 'muse-ui-message/dist/muse-ui-message.css';
+    import 'muse-ui-loading/dist/muse-ui-loading.css'; // load css
+    import 'muse-ui-message/dist/muse-ui-message.css'; // message css
     import 'muse-ui/dist/muse-ui.css';
 
     Vue.use(Toast);
     Vue.use(Message);
     Vue.use(MuseUI);
+    Vue.use(Loading);
 
     //
 
     import LayoutExample from '~/components/layout-example'
     import TransitionExample from '~/components/transition-example'
     import MessageExample from '~/components/message-example'
+    import LoadingExample from '~/components/loading-example'
 
     export default {
         components: {
             LayoutExample,
             TransitionExample,
-            MessageExample
+            MessageExample,
+            LoadingExample
         },
         asyncData(context) {
             return new Promise((resolve, reject) => {
@@ -62,6 +68,7 @@
             };
         },
         mounted() {
+
         }
     }
 </script>
