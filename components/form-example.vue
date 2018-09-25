@@ -159,6 +159,7 @@ export default {
         },
         closeAlertDialog() {
             this.openAlert = false;
+            this.$toast.warning('使用者取消');
         },
         async submit() {
             this.loading = this.$loading();
