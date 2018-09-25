@@ -8,6 +8,7 @@
         <message-example></message-example>
         <loading-example></loading-example>
         <form-example></form-example>
+        <multi-select-example></multi-select-example>
     </div>
 </template>
 
@@ -37,6 +38,7 @@
     import MessageExample from '~/components/message-example'
     import LoadingExample from '~/components/loading-example'
     import FormExample from '~/components/form-example'
+    import multiSelectExample from '~/components/multi-select-example'
 
     export default {
         components: {
@@ -44,7 +46,8 @@
             TransitionExample,
             MessageExample,
             LoadingExample,
-            FormExample
+            FormExample,
+            multiSelectExample
         },
         asyncData(context) {
             return new Promise((resolve, reject) => {
