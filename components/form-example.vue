@@ -140,13 +140,16 @@ export default {
             this.openAlert = false;
         },
         async submit() {
-            await new Promise((resolve, reject) => {
-                this.loading = this.$loading();
-                setTimeout(() => {
-                    this.loading.close();
-                    this.closeAlertDialog();
-                }, 1000);
+            this.loading = this.$loading();
+
+            this.loading.close();
+
+            var {result, value} = await this.$alert(JSON.stringify(this.form), 'alert title', {
+                type: 'success'
             });
+            this.$toast.info('修改成功!');
+
+            this.closeAlertDialog();
         }
     },
     mounted() {
