@@ -239,6 +239,10 @@ export default {
         },
         clearValidateForm() {
             this.$refs['validate-form'].clear();
+            this.validateForm.username = '';
+            this.validateForm.password = '';
+            this.validateForm.isAgree = false;
+            this.validateForm.date = '';
         }
     },
     mounted() {
