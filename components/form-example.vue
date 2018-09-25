@@ -1,5 +1,6 @@
 <template>
     <mu-container>
+        <!-- 一般的表單 -->
         <mu-button class="red-color" color="#0C0A3C" @click="openAlertDialog">一般的表單</mu-button>
         <mu-dialog
             title=""
@@ -57,6 +58,18 @@
             <mu-button slot="actions" flat color="primary" @click="closeAlertDialog">Disagree</mu-button>
             <mu-button slot="actions" flat color="primary" @click="submit">Agree</mu-button>
         </mu-dialog>
+
+        <!-- 有驗證的表單 -->
+        <mu-button color="#F00708" @click="validateDialog">表單驗證</mu-button>
+        <mu-dialog
+            title=""
+            width="600"
+            max-width="80%"
+            :esc-press-close="false"
+            :overlay-close="false"
+            :open.sync="openValidate"
+            scrollable></mu-dialog>
+
     </mu-container>
 </template>
 
@@ -71,6 +84,7 @@ export default {
     data() {
         return {
             openAlert: false,
+            openValidate: false,
 
             // form part
             options: [
@@ -133,6 +147,7 @@ export default {
         }
     },
     methods: {
+        validateDialog() {},
         openAlertDialog() {
             this.openAlert = true;
         },
