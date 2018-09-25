@@ -60,7 +60,7 @@
         </mu-dialog>
 
         <!-- 有驗證的表單 -->
-        <mu-button color="#F00708" @click="validateDialog">表單驗證</mu-button>
+        <mu-button color="#F00708" @click="openValidateDialog">表單驗證</mu-button>
         <mu-dialog
             title=""
             width="600"
@@ -151,8 +151,11 @@ export default {
         }
     },
     methods: {
-        validateDialog() {
+        openValidateDialog() {
             this.openValidate = true;
+        },
+        closeValidateDialog() {
+            this.openValidate = false;
         },
         openAlertDialog() {
             this.openAlert = true;
