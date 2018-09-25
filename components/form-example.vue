@@ -99,7 +99,13 @@
         <mu-button color="#0C0A3C" @click="openAutoDialog">自動補齊</mu-button>
         <mu-dialog
             :open.sync="openAuto">
-                call me!
+                <mu-container>
+                    <mu-row>
+                        <mu-col>
+                            <mu-auto-complete :data="nameList" label="自動補齊測試" v-model="autoName"></mu-auto-complete>
+                        </mu-col>
+                    </mu-row>
+                </mu-container>
             </mu-dialog>
 
     </mu-container>
@@ -112,6 +118,8 @@
 </style>
 
 <script>
+import { fake as fakeData } from '@/components/fake'
+
 export default {
     data() {
         return {
@@ -173,7 +181,10 @@ export default {
                     return value;
                 },
                 message: '這是一定要點的吧'
-            }]
+            }],
+
+            nameList: [],
+            autoName: ''
         }
     },
     methods: {
@@ -223,10 +234,25 @@ export default {
             this.validateForm.password = '';
             this.validateForm.isAgree = false;
             this.validateForm.date = '';
+        },
+
+        async getFakeData() {
+            var [data, error] = await (() => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve([fakeData, null]);
+                    }, 300);
+                });
+            })();
+            if (error) {
+                return;
+            }
+            this.nameList = data;
         }
     },
     mounted() {
         window.form_vm = this;
+        this.getFakeData();
     }
 };
 </script>
