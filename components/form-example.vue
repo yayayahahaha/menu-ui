@@ -1,6 +1,6 @@
 <template>
     <mu-container>
-        <mu-button class="red-color" color="#0C0A3C" @click="openAlertDialog">Open Dialog</mu-button>
+        <mu-button class="red-color" color="#0C0A3C" @click="openAlertDialog">一般的表單</mu-button>
         <mu-dialog
             title=""
             width="600"
