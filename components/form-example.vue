@@ -95,6 +95,13 @@
                 </mu-row>
             </mu-dialog>
 
+        <!-- 自動補齊 -->
+        <mu-button color="#0C0A3C" @click="openAutoDialog">自動補齊</mu-button>
+        <mu-dialog
+            :open.sync="openAuto">
+                call me!
+            </mu-dialog>
+
     </mu-container>
 </template>
 
@@ -110,6 +117,7 @@ export default {
         return {
             openAlert: false,
             openValidate: false,
+            openAuto: false,
 
             // form part
             options: [
@@ -169,6 +177,12 @@ export default {
         }
     },
     methods: {
+        openAutoDialog() {
+            this.openAuto = true;
+        },
+        closeAutoDialog() {
+            this.openAuto = false;
+        },
         openValidateDialog() {
             this.openValidate = true;
         },
