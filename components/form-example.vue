@@ -70,7 +70,25 @@
             :open.sync="openValidate"
             scrollable>
                 <mu-row>
-                    <mu-col span="12"></mu-col>
+                    <mu-col span="12">
+                        <mu-container>
+                          <mu-form ref="validate-form" :model="validateForm" class="mu-demo-form">
+                            <mu-form-item label="用户名" help-text="帮助文字" prop="username" :rules="usernameRules">
+                              <mu-text-field v-model="validateForm.username" prop="username" @keyup.enter="validateSubmit"></mu-text-field>
+                            </mu-form-item>
+                            <mu-form-item label="密码" prop="password" :rules="passwordRules">
+                                <mu-text-field type="password" v-model="validateForm.password" prop="password" @keyup.enter="validateSubmit"></mu-text-field>
+                            </mu-form-item>
+                            <mu-form-item prop="isAgree" :rules="argeeRules">
+                              <mu-checkbox label="同意用户协议" v-model="validateForm.isAgree"></mu-checkbox>
+                            </mu-form-item>
+                            <mu-form-item>
+                              <mu-button color="primary" @click="validateSubmit">提交</mu-button>
+                              <mu-button @click="clearValidateForm">重置</mu-button>
+                            </mu-form-item>
+                          </mu-form>
+                        </mu-container>
+                    </mu-col>
                 </mu-row>
             </mu-dialog>
 
@@ -147,7 +165,31 @@ export default {
                 slider: 30,
                 textarea: ''
             },
-            loading: false
+            loading: false,
+
+            validateForm: {
+                username: '',
+                password: '',
+                isAgree: false
+            },
+            usernameRules: [{
+                validate(value, validateForm) {
+                    return value === 'hello'
+                },
+                message: '請輸入 hello'
+            }],
+            passwordRules: [{
+                validate(value, validateForm) {
+                    return value !== validateForm.username;
+                },
+                message: '密碼不可和帳號相同'
+            }],
+            argeeRules: [{
+                validate(value, validateForm) {
+                    return value;
+                },
+                message: '這是一定要點的吧'
+            }]
         }
     },
     methods: {
@@ -162,7 +204,6 @@ export default {
         },
         closeAlertDialog() {
             this.openAlert = false;
-            this.$toast.warning('使用者取消');
         },
         async submit() {
             this.loading = this.$loading();
@@ -175,6 +216,19 @@ export default {
             this.$toast.info('修改成功!');
 
             this.closeAlertDialog();
+        },
+
+        async validateSubmit() {
+            var pass = await this.$refs['validate-form'].validate().then((pass) => {
+                return pass;
+            });
+            if (pass) {
+                this.$alert('pass!');
+                return;
+            }
+        },
+        clearValidateForm() {
+            this.$refs['validate-form'].clear();
         }
     },
     mounted() {
