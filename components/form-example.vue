@@ -25,7 +25,7 @@
                         </mu-form-item>
                         <mu-form-item prop="select" label="Select">
                             <mu-select v-model="form.select">
-                                <mu-option v-for="option,index in options" :key="option" :label="option" :value="option"></mu-option>
+                                <mu-option v-for="option,index in options" :key="option.key" :label="option.label" :value="option.value"></mu-option>
                             </mu-select>
                         </mu-form-item>
                         <mu-form-item prop="date" label="Date Time">
@@ -74,9 +74,49 @@ export default {
 
             // form part
             options: [
-                'Option 1', 'Option 2', 'Option 3', 'Option 4',
-                'Option 5', 'Option 6', 'Option 7', 'Option 8',
-                'Option 9', 'Option 10'
+                {
+                    key: 'key 1',
+                    label: 'option 1',
+                    value: 1
+                }, {
+                    key: 'key 2',
+                    label: 'option 2',
+                    value: 2
+                }, {
+                    key: 'key 3',
+                    label: 'option 3',
+                    value: 3
+                }, {
+                    key: 'key 4',
+                    label: 'option 4',
+                    value: 4
+                },
+                {
+                    key: 'key 5',
+                    label: 'option 5',
+                    value: 5
+                }, {
+                    key: 'key 6',
+                    label: 'option 6',
+                    value: 6
+                }, {
+                    key: 'key 7',
+                    label: 'option 7',
+                    value: 7
+                }, {
+                    key: 'key 8',
+                    label: 'option 8',
+                    value: 8
+                },
+                {
+                    key: 'key 9',
+                    label: 'option 9',
+                    value: 9
+                }, {
+                    key: 'key 10',
+                    label: 'option 10',
+                    value: 10
+                }
             ],
             labelPosition: 'top',
             form: {
@@ -108,6 +148,9 @@ export default {
                 }, 1000);
             });
         }
+    },
+    mounted() {
+        window.form_vm = this;
     }
 };
 </script>
