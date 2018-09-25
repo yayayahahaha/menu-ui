@@ -217,7 +217,6 @@ export default {
         },
         async submit() {
             this.loading = this.$loading();
-
             this.loading.close();
 
             var {result, value} = await this.$alert(JSON.stringify(this.form), 'alert title', {
@@ -233,8 +232,9 @@ export default {
                 return pass;
             });
             if (pass) {
-                this.$alert('pass!');
-                return;
+                this.$alert('pass!').then(() => {
+                    this.openValidate = false;
+                });
             }
         },
         clearValidateForm() {
