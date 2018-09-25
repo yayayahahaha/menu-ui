@@ -65,10 +65,14 @@
             title=""
             width="600"
             max-width="80%"
-            :esc-press-close="false"
-            :overlay-close="false"
+            :esc-press-close="true"
+            :overlay-close="true"
             :open.sync="openValidate"
-            scrollable></mu-dialog>
+            scrollable>
+                <mu-row>
+                    <mu-col span="12"></mu-col>
+                </mu-row>
+            </mu-dialog>
 
     </mu-container>
 </template>
@@ -147,7 +151,9 @@ export default {
         }
     },
     methods: {
-        validateDialog() {},
+        validateDialog() {
+            this.openValidate = true;
+        },
         openAlertDialog() {
             this.openAlert = true;
         },
