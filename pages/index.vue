@@ -68,7 +68,7 @@
             };
         },
         mounted() {
-
+            window.vm = this;
         }
     }
 </script>

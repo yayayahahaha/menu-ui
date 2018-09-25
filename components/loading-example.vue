@@ -1,23 +1,14 @@
 <template>
-
-    <mu-container
-        data-mu-loading-color="secondary"
-        data-mu-loading-overlay-color="rgba(0, 0, 0, .7)"
-        v-loading="loading2"
-        demo-loading-wrap">
-        <mu-button
-            color="primary"
-            @click="loading()">区域加载</mu-button>
-        <mu-button
-            color="secondary"
-            v-loading="loading1"
-            data-mu-loading-size="24"
-            @click="loading1 = !loading1">按钮加载</mu-button>
-        <mu-button
-            color="teal"
-            @click="fullscreen()">全屏加载</mu-button>
+    <mu-container>
+        <mu-expansion-panel>
+            <div slot="header">載入動畫</div>
+            <mu-container data-mu-loading-color="secondary" data-mu-loading-overlay-color="rgba(0, 0, 0, .7)" v-loading="loading2" class="demo-loading-wrap">
+              <mu-button color="primary" @click="loading()">区域加载</mu-button>
+              <mu-button color="secondary" v-loading="loading1" data-mu-loading-size="24" @click="loading1 = !loading1">按钮加载</mu-button>
+              <mu-button color="teal" @click="fullscreen()">全屏加载</mu-button>
+            </mu-container>
+        </mu-expansion-panel>
     </mu-container>
-
 </template>
 
 <style>
