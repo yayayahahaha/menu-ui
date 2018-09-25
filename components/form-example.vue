@@ -82,6 +82,9 @@
                             <mu-form-item prop="isAgree" :rules="argeeRules">
                               <mu-checkbox label="同意用户协议" v-model="validateForm.isAgree"></mu-checkbox>
                             </mu-form-item>
+                            <mu-form-item prop="date" label="Date Time" :rules="dateRules">
+                                <mu-date-input v-model="validateForm.date" type="dateTime" actions></mu-date-input>
+                            </mu-form-item>
                             <mu-form-item>
                               <mu-button color="primary" @click="validateSubmit">提交</mu-button>
                               <mu-button @click="clearValidateForm">重置</mu-button>
@@ -170,6 +173,7 @@ export default {
             validateForm: {
                 username: '',
                 password: '',
+                date: '',
                 isAgree: false
             },
             usernameRules: [{
@@ -177,6 +181,12 @@ export default {
                     return value === 'hello'
                 },
                 message: '請輸入 hello'
+            }],
+            dateRules: [{
+                validate(value) {
+                    return !!value;
+                },
+                message: '時間什麼的'
             }],
             passwordRules: [{
                 validate(value, validateForm) {
