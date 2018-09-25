@@ -7,6 +7,7 @@
         <transition-example></transition-example>
         <message-example></message-example>
         <loading-example></loading-example>
+        <form-example></form-example>
     </div>
 </template>
 
@@ -35,13 +36,15 @@
     import TransitionExample from '~/components/transition-example'
     import MessageExample from '~/components/message-example'
     import LoadingExample from '~/components/loading-example'
+    import FormExample from '~/components/form-example'
 
     export default {
         components: {
             LayoutExample,
             TransitionExample,
             MessageExample,
-            LoadingExample
+            LoadingExample,
+            FormExample
         },
         asyncData(context) {
             return new Promise((resolve, reject) => {
