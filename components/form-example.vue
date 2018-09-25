@@ -2,7 +2,7 @@
     <mu-container>
         <mu-button class="red-color" color="#0C0A3C" @click="openAlertDialog">Open Dialog</mu-button>
         <mu-dialog
-            title="Use Google's location service?"
+            title=""
             width="600"
             max-width="80%"
             :esc-press-close="false"
@@ -55,7 +55,7 @@
                 </mu-col>
             </mu-row>
             <mu-button slot="actions" flat color="primary" @click="closeAlertDialog">Disagree</mu-button>
-            <mu-button slot="actions" flat color="primary" @click="closeAlertDialog">Agree</mu-button>
+            <mu-button slot="actions" flat color="primary" @click="submit">Agree</mu-button>
         </mu-dialog>
     </mu-container>
 </template>
@@ -88,7 +88,8 @@ export default {
                 switch: false,
                 slider: 30,
                 textarea: ''
-            }
+            },
+            loading: false
         }
     },
     methods: {
@@ -97,6 +98,15 @@ export default {
         },
         closeAlertDialog() {
             this.openAlert = false;
+        },
+        async submit() {
+            await new Promise((resolve, reject) => {
+                this.loading = this.$loading();
+                setTimeout(() => {
+                    this.loading.close();
+                    this.closeAlertDialog();
+                }, 1000);
+            });
         }
     }
 };
