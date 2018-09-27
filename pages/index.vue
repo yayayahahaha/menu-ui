@@ -3,6 +3,29 @@
         <!-- 小圖示檔案 -->
         <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css">
 
+        <mu-appbar style="width: 100%;" color="primary">
+          <mu-button icon slot="left" @click="drawerObject.open = !drawerObject.open">
+            <mu-icon value="menu"></mu-icon>
+          </mu-button>
+
+          Muse UI 展示
+
+          <mu-button flat slot="right">我是按鈕</mu-button>
+        </mu-appbar>
+        <mu-drawer :open.sync="drawerObject.open" :docked="true" :right="true">
+          <mu-list>
+            <mu-list-item button>
+              <mu-list-item-title>Menu Item 1</mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item button>
+              <mu-list-item-title>Menu Item 2</mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item  @click="drawerObject.open = false" button>
+              <mu-list-item-title>Close</mu-list-item-title>
+            </mu-list-item>
+          </mu-list>
+        </mu-drawer>
+
         <layout-example></layout-example>
         <transition-example></transition-example>
         <message-example></message-example>
@@ -62,17 +85,12 @@
             });
         },
         methods: {
-            show() {
-                this.$alert('Hello World', '提示', {
-                  okLabel: '知道了'
-                }).then(() => {
-                  this.$toast.message('提示信息');
-                });
-            }
         },
         data() {
             return {
-                msg: "Context Params"
+                drawerObject: {
+                    open: false
+                }
             };
         },
         mounted() {
