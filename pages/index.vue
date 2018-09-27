@@ -37,7 +37,9 @@
     import TransitionExample from '~/components/transition-example'
     import MessageExample from '~/components/message-example'
     import LoadingExample from '~/components/loading-example'
+
     import FormExample from '~/components/form-example'
+
     import multiSelectExample from '~/components/multi-select-example'
 
     export default {
