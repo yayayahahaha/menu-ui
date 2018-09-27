@@ -9,6 +9,24 @@
           </mu-button>
 
           Muse UI 展示
+          <no-ssr>
+            <mu-menu placement="bottom-start">
+                <mu-button color="primary">Open On Hover</mu-button>
+                <mu-list slot="content">
+                <mu-list-item button>
+                    <mu-menu placement="bottom-start">
+                        <mu-button color="primary">Open On Hover</mu-button>
+                        <mu-list slot="content">
+                        <mu-list-item button>
+                            <mu-list-item-title>Refresh</mu-list-item-title>
+                        </mu-list-item>
+                        </mu-list>
+                    </mu-menu>
+                </mu-list-item>
+                </mu-list>
+            </mu-menu>
+          </no-ssr>
+
 
           <mu-button flat slot="right">我是按鈕</mu-button>
         </mu-appbar>
@@ -89,7 +107,8 @@
         data() {
             return {
                 drawerObject: {
-                    open: false
+                    open: false,
+                    openMenu: false
                 }
             };
         },
