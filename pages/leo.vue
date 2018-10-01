@@ -16,8 +16,7 @@
                               <mu-form
                                 :model="form"
                                 class="mu-demo-form"
-                                label-position="left"
-                                style="outline: 1px solid red;">
+                                label-position="left">
 
                                 <mu-container>
                                     <mu-row>
@@ -56,30 +55,44 @@
                                             </mu-form-item>
                                         </mu-col>
                                     </mu-row>
+                                    <mu-row>
+                                        <mu-col span="12">
+                                           <mu-select label="Use Chips Filterable" filterable multiple chips v-model="filterable.value3" full-width>
+                                             <mu-option v-for="city,index in computedFakeData" :key="city.key" :label="city.label" :value="city.value"></mu-option>
+                                           </mu-select>
+                                         </mu-col>
+                                    </mu-row>
+                                    <mu-row>
+                                        <mu-col>
+                                            <mu-form-item prop="radio" label="hello">
+                                                <mu-radio
+                                                    style="margin-right: 1rem;"
+                                                    :label="'radio-1'"
+                                                    value="radio-1"
+                                                    v-model="radio"></mu-radio>
+                                                <mu-radio
+                                                    style="margin-right: 1rem;"
+                                                    :label="'radio-2'"
+                                                    value="radio-2"
+                                                    v-model="radio"></mu-radio>
+                                                <mu-radio
+                                                    style="margin-right: 1rem;"
+                                                    :label="'radio-3'"
+                                                    value="radio-3"
+                                                    v-model="radio"></mu-radio>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col>
+                                            <mu-form-item prop="input" label="Input">
+                                                <mu-text-field v-model="form.color" suffix="hello" :action-icon="'shopping_cart '">
+                                                    <div slot="prepend">prepend-prepend</div>
+                                                    <div slot="append">append-append</div>
+                                                </mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                    </mu-row>
                                 </mu-container>
 
-                                <mu-form-item prop="date" label="Date Time">
-                                    <mu-date-input v-model="form.date" type="dateTime" actions></mu-date-input>
-                                </mu-form-item>
-                                <mu-form-item prop="radio" label="Radio">
-                                    <mu-radio v-model="form.radio" value="male" label="Male"></mu-radio>
-                                    <mu-radio v-model="form.radio" value="female" label="Female"></mu-radio>
-                                </mu-form-item>
-                                <mu-form-item prop="checkbox" label="Checkbox">
-                                    <mu-checkbox v-model="form.checkbox" value="eat" label="Eat"></mu-checkbox>
-                                    <mu-checkbox v-model="form.checkbox" value="sleep" label="Sleep"></mu-checkbox>
-                                    <mu-checkbox v-model="form.checkbox" value="run" label="Run"></mu-checkbox>
-                                    <mu-checkbox v-model="form.checkbox" value="movie" label="Movie"></mu-checkbox>
-                                </mu-form-item>
-                                <mu-form-item prop="switch" label="Switch">
-                                    <mu-switch v-model="form.switch"></mu-switch>
-                                </mu-form-item>
-                                <mu-form-item prop="slider" label="Slider">
-                                    <mu-slider v-model="form.slider"></mu-slider>
-                                </mu-form-item>
-                                <mu-form-item prop="textarea" label="Textarea">
-                                    <mu-text-field multi-line :rows="3" :rows-max="6" v-model="form.textarea"></mu-text-field>
-                                </mu-form-item>
                               </mu-form>
                             </mu-container>
                         </mu-col>
@@ -124,6 +137,8 @@
 
     import multiSelectExample from '~/components/multi-select-example'
 
+    import { fake as fakeData } from '@/components/fake'
+
     export default {
         components: {
             LayoutExample,
@@ -145,13 +160,31 @@
         },
         methods: {
         },
+        computed: {
+            computedFakeData() {
+                return fakeData.map((item, index) => {
+                    return {
+                        key: `${index}_${item}`,
+                        label: item,
+                        value: item
+                    };
+                });
+            }
+        },
         data() {
             return {
                 drawerObject: {
                     open: false,
                     openMenu: false
                 },
-                form: {},
+                form: {
+                    input: '',
+                    color: ''
+                },
+                filterable: {
+                    value3: []
+                },
+                radio: 'radio-2',
                 options: [
                     {
                         key: 'key 9',
