@@ -139,11 +139,14 @@
                     <mu-card-header>
                         <mu-container>
                             <mu-row>
-                                <mu-col span="2" offset="10">
+                                <mu-col span="1">
+                                    <mu-button>Left</mu-button>
+                                </mu-col>
+                                <mu-col span="2" offset="9">
                                     <mu-row>
                                         <mu-col>
-                                            <mu-button slot="right">Right</mu-button>
-                                            <mu-button slot="right">Right</mu-button>
+                                            <mu-button>Right</mu-button>
+                                            <mu-button>Right</mu-button>
                                         </mu-col>
                                     </mu-row>
                                 </mu-col>
@@ -180,7 +183,6 @@
     Vue.use(Loading);
 
     //
-
 
     import { fake as fakeData } from '@/components/fake'
 
