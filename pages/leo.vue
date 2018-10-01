@@ -21,7 +21,20 @@
                                 <mu-container>
                                     <mu-row>
                                         <mu-col span="3">
-                                            <mu-form-item prop="checkbox" label="輸入輸入輸入輸入">
+                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                <mu-text-field></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="4">
+                                          <mu-date-input v-model="value2" label="横屏显示" label-float full-width landscape></mu-date-input>
+                                        </mu-col>
+                                        <mu-col span="4">
+                                          <mu-date-input v-model="value3" label="隐藏日期展示" label-float full-width no-display></mu-date-input>
+                                        </mu-col>
+                                    </mu-row>
+                                    <mu-row>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
                                                 <mu-text-field></mu-text-field>
                                             </mu-form-item>
                                         </mu-col>
@@ -178,6 +191,7 @@
         },
         data() {
             return {
+                date_picker: '',
                 drawerObject: {
                     open: false,
                     openMenu: false
