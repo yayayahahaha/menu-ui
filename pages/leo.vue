@@ -6,12 +6,12 @@
         <mu-container>
             <mu-appbar style="width: 100%;" color="primary">
                 <mu-icon value="pan_tool"></mu-icon>
-              Title
+                Title
 
-              <mu-button slot="right">點我</mu-button>
-              <mu-button flat slot="right" @click="filter_show = !filter_show">
-                <mu-icon value="trending_down"></mu-icon>
-            </mu-button>
+                <mu-button slot="right">點我</mu-button>
+                <mu-button flat slot="right" @click="filter_show = !filter_show">
+                    <mu-icon value="trending_down"></mu-icon>
+                </mu-button>
             </mu-appbar>
             <mu-expand-transition>
                 <mu-card v-show="filter_show">
@@ -126,6 +126,38 @@
                 </mu-card>
             </mu-expand-transition>
 
+
+            <mu-appbar style="width: 100%;" color="primary">
+                <mu-icon value="pan_tool"></mu-icon>
+                Title
+                <mu-button flat slot="right" @click="result_show = !result_show">
+                    <mu-icon value="trending_down"></mu-icon>
+                </mu-button>
+            </mu-appbar>
+            <mu-expand-transition>
+                <mu-card v-show="result_show">
+                    <mu-card-header>
+                        <mu-container>
+                            <mu-row>
+                                <mu-col span="2" offset="10">
+                                    <mu-row>
+                                        <mu-col>
+                                            <mu-button slot="right">Right</mu-button>
+                                            <mu-button slot="right">Right</mu-button>
+                                        </mu-col>
+                                    </mu-row>
+                                </mu-col>
+                            </mu-row>
+                        </mu-container>
+                    </mu-card-header>
+
+                    <mu-card-text>
+                    </mu-card-text>
+
+                    <mu-card-actions>
+                    </mu-card-actions>
+                </mu-card>
+            </mu-expand-transition>
         </mu-container>
 
     </div>
@@ -179,6 +211,7 @@
         data() {
             return {
                 filter_show: false,
+                result_show: true,
                 date_picker: '',
                 drawerObject: {
                     open: false,
