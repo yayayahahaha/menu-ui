@@ -4,11 +4,14 @@
         <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css">
 
         <mu-container>
-            <mu-expansion-panel :expand="true">
-                <div slot="header">
-                    <h1><mu-icon value="menu"></mu-icon>hello</h1>
-                </div>
+            <mu-appbar style="width: 100%;" color="primary">
+                <mu-icon value="pan_tool"></mu-icon>
+              Title
 
+              <mu-button slot="right">點我</mu-button>
+              <mu-button flat slot="right"><mu-icon value="menu"></mu-icon></mu-button>
+            </mu-appbar>
+            <mu-expand-transition>
                 <mu-container>
                     <mu-row>
                         <mu-col>
@@ -116,13 +119,8 @@
                         </mu-col>
                     </mu-row>
                 </mu-container>
+            </mu-expand-transition>
 
-
-
-            </mu-expansion-panel>
-            <mu-expansion-panel :expand="true">
-                <div slot="header">牛刀小試</div>
-            </mu-expansion-panel>
         </mu-container>
 
     </div>
@@ -146,26 +144,10 @@
 
     //
 
-    import LayoutExample from '~/components/layout-example'
-    import TransitionExample from '~/components/transition-example'
-    import MessageExample from '~/components/message-example'
-    import LoadingExample from '~/components/loading-example'
-
-    import FormExample from '~/components/form-example'
-
-    import multiSelectExample from '~/components/multi-select-example'
 
     import { fake as fakeData } from '@/components/fake'
 
     export default {
-        components: {
-            LayoutExample,
-            TransitionExample,
-            MessageExample,
-            LoadingExample,
-            FormExample,
-            multiSelectExample
-        },
         asyncData(context) {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
