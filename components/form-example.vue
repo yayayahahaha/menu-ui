@@ -23,10 +23,33 @@
                                     <mu-radio v-model="labelPosition" style="margin-right: 16px;" value="right" label="Right"></mu-radio>
                                 </mu-flex>
 
-                              <mu-form :model="form" class="mu-demo-form" :label-position="labelPosition" label-width="100">
-                                <mu-form-item prop="input" label="Input">
-                                    <mu-text-field v-model="form.input"></mu-text-field>
-                                </mu-form-item>
+                              <mu-form
+                                :model="form"
+                                class="mu-demo-form"
+                                :label-position="labelPosition"
+                                style="outline: 1px solid red;">
+
+                                <mu-container>
+                                    <mu-row>
+                                        <mu-col span="1">
+                                            <mu-form-item prop="checkbox" label="輸入輸入輸入輸入">
+                                                <mu-text-field></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="6" md="123">
+                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                <mu-text-field v-model="form.input"></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="6">
+                                            <mu-form-item prop="input" label="數入2">
+                                                <mu-text-field v-model="form.input"></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                    </mu-row>
+                                </mu-container>
+
+
                                 <mu-form-item prop="select" label="Select">
                                     <mu-select v-model="form.select">
                                         <mu-option v-for="option,index in options" :key="option.key" :label="option.label" :value="option.value"></mu-option>
