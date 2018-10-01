@@ -9,116 +9,121 @@
               Title
 
               <mu-button slot="right">點我</mu-button>
-              <mu-button flat slot="right"><mu-icon value="menu"></mu-icon></mu-button>
+              <mu-button flat slot="right" @click="filter_show = !filter_show">
+                <mu-icon value="trending_down"></mu-icon>
+            </mu-button>
             </mu-appbar>
             <mu-expand-transition>
-                <mu-container>
-                    <mu-row>
-                        <mu-col>
-                            <mu-container>
-                              <mu-form
-                                :model="form"
-                                class="mu-demo-form"
-                                label-position="left">
-
+                <mu-card v-show="filter_show">
+                    <mu-card-text>
+                        <mu-row>
+                            <mu-col>
                                 <mu-container>
-                                    <mu-row>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
-                                                <mu-text-field></mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                        <mu-col span="4">
-                                          <mu-date-input v-model="date_picker" label="横屏显示" label-float full-width landscape></mu-date-input>
-                                        </mu-col>
-                                        <mu-col span="4">
-                                          <mu-date-input v-model="date_picker" label="隐藏日期展示" label-float full-width no-display></mu-date-input>
-                                        </mu-col>
-                                    </mu-row>
-                                    <mu-row>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
-                                                <mu-text-field></mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
-                                                <mu-text-field v-model="form.input"></mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
-                                                <mu-text-field v-model="form.input"></mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
-                                                <mu-text-field v-model="form.input"></mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                    </mu-row>
-                                    <mu-row>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="select" label="Select">
-                                                <mu-select v-model="form.select">
-                                                    <mu-option v-for="option,index in options" :key="option.key" :label="option.label" :value="option.value"></mu-option>
-                                                </mu-select>
-                                            </mu-form-item>
-                                        </mu-col>
-                                        <mu-col span="3">
-                                            <mu-form-item prop="input" label="">
-                                                <mu-text-field v-model="form.input"></mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                    </mu-row>
-                                    <mu-row>
-                                        <mu-col span="12">
-                                           <mu-select label="Use Chips Filterable" filterable multiple chips v-model="filterable.value3" full-width>
-                                             <mu-option v-for="city,index in computedFakeData" :key="city.key" :label="city.label" :value="city.value"></mu-option>
-                                           </mu-select>
-                                         </mu-col>
-                                    </mu-row>
-                                    <mu-row>
-                                        <mu-col>
-                                            <mu-form-item prop="radio" label="hello">
-                                                <mu-radio
-                                                    style="margin-right: 1rem;"
-                                                    :label="'radio-1'"
-                                                    value="radio-1"
-                                                    v-model="radio"></mu-radio>
-                                                <mu-radio
-                                                    style="margin-right: 1rem;"
-                                                    :label="'radio-2'"
-                                                    value="radio-2"
-                                                    v-model="radio"></mu-radio>
-                                                <mu-radio
-                                                    style="margin-right: 1rem;"
-                                                    :label="'radio-3'"
-                                                    value="radio-3"
-                                                    v-model="radio"></mu-radio>
-                                            </mu-form-item>
-                                        </mu-col>
-                                        <mu-col>
-                                            <mu-form-item prop="input" label="Input">
-                                                <mu-text-field v-model="form.color" suffix="hello" :action-icon="'shopping_cart '">
-                                                    <div slot="prepend">prepend-prepend</div>
-                                                    <div slot="append">append-append</div>
-                                                </mu-text-field>
-                                            </mu-form-item>
-                                        </mu-col>
-                                    </mu-row>
-                                    <mu-divider solo full-width></mu-divider>
-                                    <mu-row style="margin-top: 1rem;">
-                                        <mu-col span="1" offset="11">
-                                            <mu-button>hello</mu-button>
-                                        </mu-col>
-                                    </mu-row>
+                                  <mu-form
+                                    :model="form"
+                                    class="mu-demo-form"
+                                    label-position="left">
+
+                                    <mu-container>
+                                        <mu-row>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                    <mu-text-field></mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                            <mu-col span="4">
+                                              <mu-date-input v-model="date_picker" label="横屏显示" label-float full-width landscape></mu-date-input>
+                                            </mu-col>
+                                            <mu-col span="4">
+                                              <mu-date-input v-model="date_picker" label="隐藏日期展示" label-float full-width no-display></mu-date-input>
+                                            </mu-col>
+                                        </mu-row>
+                                        <mu-row>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                    <mu-text-field></mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                    <mu-text-field v-model="form.input"></mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                    <mu-text-field v-model="form.input"></mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                    <mu-text-field v-model="form.input"></mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                        </mu-row>
+                                        <mu-row>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="select" label="Select">
+                                                    <mu-select v-model="form.select">
+                                                        <mu-option v-for="option,index in options" :key="option.key" :label="option.label" :value="option.value"></mu-option>
+                                                    </mu-select>
+                                                </mu-form-item>
+                                            </mu-col>
+                                            <mu-col span="3">
+                                                <mu-form-item prop="input" label="">
+                                                    <mu-text-field v-model="form.input"></mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                        </mu-row>
+                                        <mu-row>
+                                            <mu-col span="12">
+                                               <mu-select label="Use Chips Filterable" filterable multiple chips v-model="filterable.value3" full-width>
+                                                 <mu-option v-for="city,index in computedFakeData" :key="city.key" :label="city.label" :value="city.value"></mu-option>
+                                               </mu-select>
+                                             </mu-col>
+                                        </mu-row>
+                                        <mu-row>
+                                            <mu-col>
+                                                <mu-form-item prop="radio" label="hello">
+                                                    <mu-radio
+                                                        style="margin-right: 1rem;"
+                                                        :label="'radio-1'"
+                                                        value="radio-1"
+                                                        v-model="radio"></mu-radio>
+                                                    <mu-radio
+                                                        style="margin-right: 1rem;"
+                                                        :label="'radio-2'"
+                                                        value="radio-2"
+                                                        v-model="radio"></mu-radio>
+                                                    <mu-radio
+                                                        style="margin-right: 1rem;"
+                                                        :label="'radio-3'"
+                                                        value="radio-3"
+                                                        v-model="radio"></mu-radio>
+                                                </mu-form-item>
+                                            </mu-col>
+                                            <mu-col>
+                                                <mu-form-item prop="input" label="Input">
+                                                    <mu-text-field v-model="form.color" suffix="hello" :action-icon="'shopping_cart '">
+                                                        <div slot="prepend">prepend-prepend</div>
+                                                        <div slot="append">append-append</div>
+                                                    </mu-text-field>
+                                                </mu-form-item>
+                                            </mu-col>
+                                        </mu-row>
+                                    </mu-container>
+                                  </mu-form>
                                 </mu-container>
-                              </mu-form>
-                            </mu-container>
-                        </mu-col>
-                    </mu-row>
-                </mu-container>
+                            </mu-col>
+                        </mu-row>
+                    </mu-card-text>
+                    <mu-card-actions>
+                        <mu-row>
+                            <mu-col span="1" offset="11">
+                                <mu-button color="blue">click!</mu-button>
+                            </mu-col>
+                        </mu-row>
+                    </mu-card-actions>
+                </mu-card>
             </mu-expand-transition>
 
         </mu-container>
@@ -173,6 +178,7 @@
         },
         data() {
             return {
+                filter_show: false,
                 date_picker: '',
                 drawerObject: {
                     open: false,
