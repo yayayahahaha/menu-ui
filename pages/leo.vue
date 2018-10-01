@@ -26,10 +26,10 @@
                                             </mu-form-item>
                                         </mu-col>
                                         <mu-col span="4">
-                                          <mu-date-input v-model="value2" label="横屏显示" label-float full-width landscape></mu-date-input>
+                                          <mu-date-input v-model="date_picker" label="横屏显示" label-float full-width landscape></mu-date-input>
                                         </mu-col>
                                         <mu-col span="4">
-                                          <mu-date-input v-model="value3" label="隐藏日期展示" label-float full-width no-display></mu-date-input>
+                                          <mu-date-input v-model="date_picker" label="隐藏日期展示" label-float full-width no-display></mu-date-input>
                                         </mu-col>
                                     </mu-row>
                                     <mu-row>
