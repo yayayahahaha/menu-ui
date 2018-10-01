@@ -3,33 +3,97 @@
         <!-- 小圖示檔案 -->
         <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css">
 
-        <mu-appbar style="width: 100%;" color="primary">
-          <mu-button icon slot="left">
-            <mu-icon value="menu"></mu-icon>
-          </mu-button>
+        <mu-container>
+            <mu-expansion-panel :expand="true">
+                <div slot="header">
+                    <h1><mu-icon value="menu"></mu-icon>hello</h1>
+                </div>
 
-          Muse UI 展示
-          <no-ssr>
-            <mu-menu placement="bottom-start">
-                <mu-button color="primary">Open On Hover</mu-button>
-                <mu-list slot="content">
-                <mu-list-item button>
-                    <mu-menu placement="bottom-start">
-                        <mu-button color="primary">Open On Hover</mu-button>
-                        <mu-list slot="content">
-                        <mu-list-item button>
-                            <mu-list-item-title>Refresh</mu-list-item-title>
-                        </mu-list-item>
-                        </mu-list>
-                    </mu-menu>
-                </mu-list-item>
-                </mu-list>
-            </mu-menu>
-          </no-ssr>
+                <mu-container>
+                    <mu-row>
+                        <mu-col>
+                            <mu-container>
+                              <mu-form
+                                :model="form"
+                                class="mu-demo-form"
+                                label-position="left"
+                                style="outline: 1px solid red;">
+
+                                <mu-container>
+                                    <mu-row>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="checkbox" label="輸入輸入輸入輸入">
+                                                <mu-text-field></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                <mu-text-field v-model="form.input"></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                <mu-text-field v-model="form.input"></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="input" label="輸入輸入輸入輸入">
+                                                <mu-text-field v-model="form.input"></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                    </mu-row>
+                                    <mu-row>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="select" label="Select">
+                                                <mu-select v-model="form.select">
+                                                    <mu-option v-for="option,index in options" :key="option.key" :label="option.label" :value="option.value"></mu-option>
+                                                </mu-select>
+                                            </mu-form-item>
+                                        </mu-col>
+                                        <mu-col span="3">
+                                            <mu-form-item prop="input" label="">
+                                                <mu-text-field v-model="form.input"></mu-text-field>
+                                            </mu-form-item>
+                                        </mu-col>
+                                    </mu-row>
+                                </mu-container>
+
+                                <mu-form-item prop="date" label="Date Time">
+                                    <mu-date-input v-model="form.date" type="dateTime" actions></mu-date-input>
+                                </mu-form-item>
+                                <mu-form-item prop="radio" label="Radio">
+                                    <mu-radio v-model="form.radio" value="male" label="Male"></mu-radio>
+                                    <mu-radio v-model="form.radio" value="female" label="Female"></mu-radio>
+                                </mu-form-item>
+                                <mu-form-item prop="checkbox" label="Checkbox">
+                                    <mu-checkbox v-model="form.checkbox" value="eat" label="Eat"></mu-checkbox>
+                                    <mu-checkbox v-model="form.checkbox" value="sleep" label="Sleep"></mu-checkbox>
+                                    <mu-checkbox v-model="form.checkbox" value="run" label="Run"></mu-checkbox>
+                                    <mu-checkbox v-model="form.checkbox" value="movie" label="Movie"></mu-checkbox>
+                                </mu-form-item>
+                                <mu-form-item prop="switch" label="Switch">
+                                    <mu-switch v-model="form.switch"></mu-switch>
+                                </mu-form-item>
+                                <mu-form-item prop="slider" label="Slider">
+                                    <mu-slider v-model="form.slider"></mu-slider>
+                                </mu-form-item>
+                                <mu-form-item prop="textarea" label="Textarea">
+                                    <mu-text-field multi-line :rows="3" :rows-max="6" v-model="form.textarea"></mu-text-field>
+                                </mu-form-item>
+                              </mu-form>
+                            </mu-container>
+                        </mu-col>
+                    </mu-row>
+                </mu-container>
 
 
-          <mu-button flat slot="right">我是按鈕</mu-button>
-        </mu-appbar>
+
+            </mu-expansion-panel>
+            <mu-expansion-panel :expand="true">
+                <div slot="header">牛刀小試</div>
+            </mu-expansion-panel>
+        </mu-container>
+
     </div>
 </template>
 
@@ -86,7 +150,19 @@
                 drawerObject: {
                     open: false,
                     openMenu: false
-                }
+                },
+                form: {},
+                options: [
+                    {
+                        key: 'key 9',
+                        label: 'option 9',
+                        value: 9
+                    }, {
+                        key: 'key 10',
+                        label: 'option 10',
+                        value: 10
+                    }
+                ],
             };
         },
         mounted() {
