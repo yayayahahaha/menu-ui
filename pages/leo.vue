@@ -174,11 +174,17 @@
                                 <td class="is-right" v-text="scope.row.carbs"></td>
                                 <td class="is-right" v-text="scope.row.protein"></td>
                                 <td>
-                                    <mu-button color="red" small>red</mu-button>
-                                    <mu-button color="blue" small>blue</mu-button>
+                                    <mu-button
+                                        color="red"
+                                        small
+                                        @click="tableRowAlert(scope.row.name, 'tableRowAlert')">alert</mu-button>
+                                    <mu-button
+                                        color="blue"
+                                        small
+                                        @click="tableRowDialog(scope.row.name, 'dialog')">dialog</mu-button>
 
                                     <mu-tooltip placement="left">
-                                        <mu-button color="pink" small>pink</mu-button>
+                                        <mu-button color="pink" small>toast</mu-button>
                                         <mu-card slot="content">
                                             <mu-list>
                                                 <mu-list-item>
@@ -211,6 +217,10 @@
                 </mu-card>
             </mu-expand-transition>
         </mu-container>
+
+        <mu-dialog :open.sync="openDialog">
+            hi
+        </mu-dialog>
 
     </div>
 </template>
@@ -249,6 +259,12 @@
         methods: {
             tableRowBtnClick(who, text) {
                 this.$toast.message(`點擊了${who}的${text}`);
+            },
+            tableRowAlert(who, text) {
+                this.$alert(`觸發了${who}的${text}`);
+            },
+            tableRowDialog(who, text) {
+                this.openDialog = true;
             }
         },
         computed: {
@@ -264,6 +280,7 @@
         },
         data() {
             return {
+                openDialog: false,
                 filter_show: false,
                 result_show: true,
                 date_picker: '',
