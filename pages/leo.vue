@@ -160,8 +160,7 @@
                             <mu-data-table
                                 border
                                 :columns="columns"
-                                @sort-change="handleSortChange"
-                                :data="list.slice(0, 6)">
+                                :data="list">
                               <template slot-scope="scope">
                                 <td>{{scope.row.name}}</td>
                                 <td class="is-right">{{scope.row.calories}}</td>
@@ -254,6 +253,7 @@
                     label: 'option 10',
                     value: 10
                 }],
+
                 columns: [{
                     title: 'Dessert (100g serving)',
                     width: 200,
@@ -261,31 +261,26 @@
                 }, {
                     title: 'Calories',
                     name: 'calories',
-                    width: 126,
                     align: 'center',
                     sortable: true
                 }, {
                     title: 'Fat (g)',
                     name: 'fat',
-                    width: 126,
                     align: 'center',
                     sortable: true
                 }, {
                     title: 'Carbs (g)',
                     name: 'carbs',
-                    width: 126,
                     align: 'center',
                     sortable: true
                 }, {
                     title: 'Protein (g)',
                     name: 'protein',
-                    width: 126,
                     align: 'center',
                     sortable: true
                 }, {
                     title: 'Iron (%)',
                     name: 'iron',
-                    width: 126,
                     align: 'center',
                     sortable: true
                 }],
