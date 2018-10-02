@@ -163,11 +163,43 @@
                                 :data="list">
                               <template slot-scope="scope">
                                 <td>{{scope.row.name}}</td>
-                                <td class="is-right">{{scope.row.calories}}</td>
-                                <td class="is-right">{{scope.row.fat}}</td>
-                                <td class="is-right">{{scope.row.carbs}}</td>
-                                <td class="is-right">{{scope.row.protein}}</td>
-                                <td class="is-right">{{scope.row.iron}}%</td>
+                                <td class="is-right">
+                                    <mu-form :model="{}">
+                                        <mu-form-item prop="input">
+                                            <mu-text-field v-model="form.input"></mu-text-field>
+                                        </mu-form-item>
+                                    </mu-form>
+                                </td>
+                                <td class="is-right" v-text="scope.row.fat"></td>
+                                <td class="is-right" v-text="scope.row.carbs"></td>
+                                <td class="is-right" v-text="scope.row.protein"></td>
+                                <td>
+                                    <mu-button color="red" small>red</mu-button>
+                                    <mu-button color="blue" small>blue</mu-button>
+
+                                    <mu-tooltip placement="left">
+                                        <mu-button color="pink" small>pink</mu-button>
+                                        <mu-card slot="content">
+                                            <mu-list>
+                                                <mu-list-item>
+                                                    <mu-list-item-content>
+                                                        <mu-list-item-title>時間</mu-list-item-title>
+                                                        <mu-list-item-sub-title>2000-01-01</mu-list-item-sub-title>
+                                                    </mu-list-item-content>
+                                                </mu-list-item>
+                                                <mu-list-item>
+                                                    <mu-list-item-content>
+                                                        <mu-button
+                                                            @click="tableRowBtnClick(scope.row.name, '確認')">確認</mu-button>
+                                                        <mu-button
+                                                            @click="tableRowBtnClick(scope.row.name, '失敗')">失敗</mu-button>
+                                                    </mu-list-item-content>
+                                                </mu-list-item>
+                                            </mu-list>
+                                        </mu-card>
+                                    </mu-tooltip>
+                                    <!-- <mu-button color="yellow" small>yellow</mu-button> -->
+                                </td>
                               </template>
                             </mu-data-table>
                           </mu-paper>
@@ -215,6 +247,9 @@
             });
         },
         methods: {
+            tableRowBtnClick(who, text) {
+                this.$toast.message(`點擊了${who}的${text}`);
+            }
         },
         computed: {
             computedFakeData() {
